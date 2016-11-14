@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>EWB | USC Chapter</title>
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet"></link>
+    <link href="{% static "css/layout.css" %}" rel="stylesheet"></link>
+    <link href="{% static "css/lightbox.css" %}" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 logo">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <a href="/">
+                <img class="logo" src="{% static "images/uscewb.png" %}"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 nav-bg">
+          <nav class="navbar navbar-default" id="nav" role="navigation">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button class="navbar-toggle pull-left" data-target="#nav-collapse" data-toggle="collapse" type="button">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"></a>
+                <!-- Social for Mobile
+                -->
+                <div class="visible-xs">
+                  <div class="pull-right">
+                    <a href="https://www.facebook.com/ewbatusc" target="_blank">
+                      <img src="{% static "images/icon-facebook-hover.png" %}" width="48px"/>
+                    </a>
+                    <a href="https://twitter.com/ewbusa_usc" target="_blank">
+                      <img src="{% static "images/icon-twitter-hover.png" %}" width="48px"/>
+                    </a>
+                    <a href="https://www.linkedin.com/groups/Engineers-Without-Borders-University-South-8228144" target="_blank">
+                      <img src="{% static "images/icon-linkedin-hover.png" %}" width="48px"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse navbar-collapse" id="nav-collapse">
+                <!-- TODO: Reimplement navbar -->
+                <% # Rendered Nagivation can be found in /app/config/navigation.rb %>
+                <%= render_navigation %>
+                <!-- Social for larger screens
+                -->
+                <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+                  <li class="icon-facebook">
+                    <a href="https://www.facebook.com/ewbatusc" target="_blank">
+                      <img height="18px" src="{% static "images/icon-facebook.png" %}"/>
+                    </a>
+                  </li>
+                  <li class="icon-twitter">
+                    <a href="https://twitter.com/ewbusa_usc" target="_blank">
+                      <img height="18px" src="{% static "images/icon-twitter.png" %}"/>
+                    </a>
+                  </li>
+                  <li class="icon-linkedin">
+                    <a href="https://www.linkedin.com/groups/Engineers-Without-Borders-University-South-8228144" target="_blank">
+                      <img height="18px" src="{% static "images/icon-linkedin.png" %}"/>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="col-xs-12 bg-white">
+          <!-- Web page content -->
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div class="col-xs-12 footer-bg">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="text-center">
+                <b>&copy; 2016 University of South Carolina EWB-USA Student Chapter</b>
+                <br/>
+                <a href="https://www.facebook.com/ewbatusc" target="_blank">Facebook</a>
+                |
+                <a href="https://twitter.com/ewbusa_usc" target="_blank">Twitter</a>
+                |
+                <a href="https://www.linkedin.com/groups/Engineers-Without-Borders-University-South-8228144" target="_blank">LinkedIn</a>
+                |
+                <a href="<%= :contact %>">Contact</a>
+                <!-- REPLACE ABOVE LINE WITH THIS ONCE CONTACT IS IMPLEMENTED <a href="curlybrace% url 'contact' %curlybrace">Contact</a> -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/lightbox.js" %}"></script>
+    <!-- JS used to affix the navbar
+    -->
+    <script>
+      
+      $('#nav').affix({
+        offset: { top: $('#nav').offset().top }
+      });
+
+    </script>
+  </body>
+</html>
