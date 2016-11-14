@@ -1,3 +1,8 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
 <div class="page-header text-center">
   <h2>
     EWB-USA at the University of South Carolina
@@ -22,14 +27,11 @@
       Engineers Without Borders USA (EWB-USA) is at the forefront of a movement within the engineering community. By offering unique, hands-on opportunities for engineers and other professions to work directly with communities in need, EWB-USA is educating the next generation of engineers in sustainable engineering practices by providing real world experience and problem solving. EWB-USA is a 501(c)3 non-profit humanitarian organization dedicated to partnering with lower-income communities around the world. Over 16,800 members work to support these efforts with projects in water supply, sanitation, energy, agriculture, civil works, structures and information systems.
     </p>
     <p>
-      Learn more about EWB-USA at the national website,
-      <%= succeed "." do %>
-        <a href="ewb-usa.org">ewb-usa.org</a>
-      <% end %>
+      Learn more about EWB-USA at the national website, <a href="ewb-usa.org">ewb-usa.org</a>.
     </p>
     <p>
       The Student Chapter of EWB-USA at the University of South Carolina (EWB-USC), founded in 2010, is a strong interdisciplinary team from a variety of colleges and majors. Our student members come from the College of Engineering and Computing, the College of Arts and Sciences, the Arnold School of Public Health, and the Darla Moore School of Business. We work on projects to benefit both local and international communities. 
-      <a href="/projects">Click here </a>
+      <a href="/projects">Click here</a> 
       to learn more about chapter activities and projects.
     </p>
     <h3>What We Do</h3>
@@ -85,18 +87,18 @@
     <br/>
   </div>
   <div class="col-xs-12 col-md-4">
-    <a class="thumbnail" data-lightbox="index" href="images/index1.jpg">
-      <img class="img-responsive" src="images/index1.jpg"/>
+    <a class="thumbnail" data-lightbox="index" href="{% static "images/index1.jpg" %}">
+      <img class="img-responsive" src="{% static "images/index1.jpg" %}"/>
     </a>
   </div>
   <div class="col-xs-12 col-md-4">
-    <a class="thumbnail" data-lightbox="index" href="images/index3.jpg">
-      <img class="img-responsive" src="images/index3.jpg"/>
+    <a class="thumbnail" data-lightbox="index" href="{% static "images/index3.jpg" %}">
+      <img class="img-responsive" src="{% static "images/index3.jpg" %}"/>
     </a>
   </div>
   <div class="col-xs-12 col-md-4">
-    <a class="thumbnail" data-lightbox="index" href="images/index2.jpg">
-      <img class="img-responsive" src="images/index2.jpg"/>
+    <a class="thumbnail" data-lightbox="index" href="{% static "images/index2.jpg" %}">
+      <img class="img-responsive" src="{% static "images/index2.jpg" %}"/>
     </a>
   </div>
 </div>
@@ -105,3 +107,5 @@
     <br/>
   </div>
 </div>
+
+{% endblock %}
