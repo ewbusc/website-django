@@ -94,3 +94,5 @@ ENV/
 # Custom settings
 ewb/settings_secret.py
 db.sqlite3
+# created with 'python manage.py collectstatic':
+static/
