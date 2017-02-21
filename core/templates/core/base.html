@@ -49,20 +49,21 @@
                   </div>
                 </div>
               </div>
-              
+
               {% load tags %}
 
               {% url 'home_url' as home %}
               {% url 'support_url' as support %}
               {% url 'contact_url' as contact %}
               {% url 'events_url' as events %}
-
+              {% url 'projects_url' as projects %}
               <div class="collapse navbar-collapse" id="nav-collapse">
                 <ul class="nav navbar-nav">
                   <li class="{% active request home %}"><a href="{{ home }}">Home</a></li>
+                  <li class="{% active request events %}"><a href="{{ events }}">Events</a></li>
+                  <li class="{% active request projects %}"><a href="{{ projects }}">Projects</a></li>
                   <li class="{% active request support %}"><a href="{{ support }}">Support</a></li>
                   <li class="{% active request contact %}"><a href="{{ contact }}">Contact</a></li>
-                  <li class="{% active request events %}"><a href="{{ events }}">Events</a></li>
                 </ul>
                 <!-- Social for larger screens
                 -->
@@ -118,7 +119,7 @@
     <!-- JS used to affix the navbar
     -->
     <script>
-      
+
       $('#nav').affix({
         offset: { top: $('#nav').offset().top }
       });
