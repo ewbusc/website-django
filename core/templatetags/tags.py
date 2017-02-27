@@ -10,6 +10,8 @@ register = template.Library()
 
 @register.simple_tag
 def active(request, pattern):
-    if re.search(pattern, request.path):
+    print("Pattern: {}".format(pattern))
+    print("Path: {}".format(request.path))
+    if re.fullmatch(pattern, request.path):
         return 'active'
     return ''
