@@ -22,8 +22,12 @@
 </div>
 <div class="row">
   <div class="col-xs-12 col-md-5 col-md-offset-1">
-    <a class="btn btn-default" href="{% url 'edit_home_url' %}" role="button">Edit me</a>
-    {{ contentBlock | safe }}
+    <form method="post">
+	{% csrf_token %}
+        {{ form.media }}
+	{{ form.as_p }}
+	<input type="submit"/>
+    </form>
     <h3>What We Do</h3>
     <p>
       EWB-USC is working on projects locally and internationally. Our international project is in La Victoria, Ecuador with a coffee producing community of about 1,500 people. The dry season in La Victoria prevents the farmers from producing as much coffee as they could otherwise, which impedes their economic development. To combat this issue, our chapter has designed and built a pipeline from a waterfall one mile away from the farms that runs year-round. Now, we have begun a new project in the nearby town of El Cedro. We are in the assessment phase for a new project related to pipeline maintenance.
