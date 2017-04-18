@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ewb.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -119,3 +119,43 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# CKEditor
+# https://github.com/django-ckeditor/django-ckeditor/blob/master/README.rst
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom', # defined below as 'toolbar_Custom'
+        'toolbar_Custom': [
+            {'name': 'document', 'items': ['Source']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-']},
+            {'name': 'links', 'items': ['Link', 'Unlink']},
+            {'name': 'insert',
+             'items': ['Image', 'Table', 'HorizontalRule']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+        ],
+        'extraPlugins': ','.join(
+            [
+                # your extra plugins here
+                'div',
+                'autolink',
+                'autoembed',
+                'autogrow',
+                'lineutils',
+                'clipboard'
+            ]),
+        'width':'100%',
+        'height':'100%',
+        'contentsCss': STATIC_URL + 'css/bootstrap.css',
+        'allowedContent':True
+    }
+}

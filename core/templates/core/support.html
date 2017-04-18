@@ -3,23 +3,7 @@
 {% load staticfiles %}
 {% block content %}
 <div class='row'>
-  <div class='col-xs-12 col-md-10 col-md-offset-1'>
-    <div class='page-header text-center'>
-      <h3>Ways to Contribute</h3>
-    </div>
-  </div>
-  <div class='col-xs-12 col-md-10 col-md-offset-1'>
-    <h4>Donate directly to the USC chapter</h4>
-    <p>
-      We have a GoFundMe campaign! Help us bring safe drinking water to the 500 residents of El Cedro, Ecuador. Check it out
-    </p>
-    <p>
-      You can also support our projects by donating through the EWB-USA national website.
-      Funding can be contributed for
-      or designated for a specific international project.
-      EWB-USA is a non-profit company, and your donation is therefore tax deductible.
-    </p>
-  </div>
+  {{ support_contribute }}
 </div>
 <div class='page-header'>
   <h2 class='text-center'>Our Top Contributors</h2>
@@ -115,15 +99,6 @@
   </div>
 </div>
 <div class='row'>
-  <div class='col-xs-12 col-md-8 col-md-offset-2'>
-    <h3>Our Partners and Sponsors</h3>
-    <p>EWB-USA at USC thanks our sponsors for their support of the La Victoria Irrigation project.</p>
-    <ul class='sponsors'>
-      <li>Drs. Kenneth and Martha Reifsnider</li>
-      <li>Level Growth, LLC</li>
-      <li>Orange Leaf</li>
-      <li>Yoghut</li>
-    </ul>
-  </div>
+  {{ support_partners_sponsors }}
 </div>
 {% endblock content %}
